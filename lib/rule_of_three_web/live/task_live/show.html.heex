@@ -1,0 +1,30 @@
+<.header>
+  Task {@task.id}
+  <:subtitle>This is a task record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/tasks/#{@task}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit task</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Content">{@task.content}</:item>
+  <:item title="Is ticked">{@task.is_ticked}</:item>
+  <:item title="Is carried">{@task.is_carried}</:item>
+  <:item title="Is removed">{@task.is_removed}</:item>
+  <:item title="Page count">{@task.page_count}</:item>
+</.list>
+
+<.back navigate={~p"/tasks"}>Back to tasks</.back>
+
+<.modal :if={@live_action == :edit} id="task-modal" show on_cancel={JS.patch(~p"/tasks/#{@task}")}>
+  <.live_component
+    module={RuleOfThreeWeb.TaskLive.FormComponent}
+    id={@task.id}
+    title={@page_title}
+    action={@live_action}
+    task={@task}
+    patch={~p"/tasks/#{@task}"}
+  />
+</.modal>

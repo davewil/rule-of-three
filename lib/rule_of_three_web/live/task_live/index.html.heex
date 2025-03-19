@@ -1,0 +1,45 @@
+<.header>
+  Listing Tasks
+  <:actions>
+    <.link patch={~p"/tasks/new"}>
+      <.button>New Task</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="tasks"
+  rows={@streams.tasks}
+  row_click={fn {_id, task} -> JS.navigate(~p"/tasks/#{task}") end}
+>
+  <:col :let={{_id, task}} label="Content">{task.content}</:col>
+  <:col :let={{_id, task}} label="Is ticked">{task.is_ticked}</:col>
+  <:col :let={{_id, task}} label="Is carried">{task.is_carried}</:col>
+  <:col :let={{_id, task}} label="Is removed">{task.is_removed}</:col>
+  <:col :let={{_id, task}} label="Page count">{task.page_count}</:col>
+  <:action :let={{_id, task}}>
+    <div class="sr-only">
+      <.link navigate={~p"/tasks/#{task}"}>Show</.link>
+    </div>
+    <.link patch={~p"/tasks/#{task}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, task}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: task.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="task-modal" show on_cancel={JS.patch(~p"/tasks")}>
+  <.live_component
+    module={RuleOfThreeWeb.TaskLive.FormComponent}
+    id={@task.id || :new}
+    title={@page_title}
+    action={@live_action}
+    task={@task}
+    patch={~p"/tasks"}
+  />
+</.modal>
