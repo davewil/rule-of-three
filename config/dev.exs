@@ -3,8 +3,9 @@ import Config
 # Configure your database
 config :rule_of_three, RuleOfThree.Repo,
   username: "postgres",
-  password: "letmein!",
+  password: "postgrespass",
   hostname: "localhost",
+  port: 5433,
   database: "rule_of_three_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
