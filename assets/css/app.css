@@ -1,22 +1,20 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
 /* This file is for your main application CSS */
 @theme {
   --color-base: #191724;
   --color-surface: #1f1d2e;
---color-overlay: #26233a;
---color-muted: #6e6a86;
---color-subtle: #908caa;
---color-text: #e0def4;
---color-love: #eb6f92;
---color-gold: #f6c177;
---color-rose: #ebbcba;
---color-pine: #31748f;
---color-foam: #9ccfd8;
---color-iris: #c4a7e7;
---color-highlight-low: #21202e;
---color-highlight-mid: #403d52;
---color-highlight-high: #524f67;
+  --color-overlay: #26233a;
+  --color-muted: #6e6a86;
+  --color-subtle: #908caa;
+  --color-text: #e0def4;
+  --color-love: #eb6f92;
+  --color-gold: #f6c177;
+  --color-rose: #ebbcba;
+  --color-pine: #31748f;
+  --color-foam: #9ccfd8;
+  --color-iris: #c4a7e7;
+  --color-highlight-low: #21202e;
+  --color-highlight-mid: #403d52;
+  --color-highlight-high: #524f67;
 }
