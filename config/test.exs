@@ -10,9 +10,8 @@ config :pbkdf2_elixir, :rounds, 1
 # Run `mix help test` for more information.
 config :rule_of_three, RuleOfThree.Repo,
   username: "postgres",
-  password: "postgrespass",
+  password: "letmein!",
   hostname: "localhost",
-  port: 5433,
   database: "rule_of_three_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2

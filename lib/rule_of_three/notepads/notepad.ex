@@ -19,5 +19,4 @@ defmodule RuleOfThree.Notepads.Notepad do
     |> cast(attrs, [:name, :user_id])
     |> validate_required([:name, :user_id])
   end
-
 end

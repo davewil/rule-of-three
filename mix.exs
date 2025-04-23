@@ -33,7 +33,7 @@ defmodule RuleOfThree.MixProject do
   defp deps do
     [
       {:pbkdf2_elixir, "~> 2.0"},
-      {:phoenix, "~> 1.7"},
+      {:phoenix, "~> 1.7.20"},
       {:phoenix_ecto, "~> 4.5"},
       {:ecto_sql, "~> 3.10"},
       {:postgrex, ">= 0.0.0"},
@@ -43,7 +43,7 @@ defmodule RuleOfThree.MixProject do
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.8.3"},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.2", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
        tag: "v2.1.1",
@@ -60,7 +60,7 @@ defmodule RuleOfThree.MixProject do
       {:hackney, "~> 1.9"},
       {:swoosh, "~> 1.4"}
     ]
-  end 
+  end
 
   # Aliases are shortcuts or tasks specific to the current project.
   # For example, to install project dependencies and perform other setup tasks, run:
