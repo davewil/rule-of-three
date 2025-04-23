@@ -1,14 +1,6 @@
 import Config
+import_config "#{Mix.env()}.secrets.exs"
 
-# Configure your database
-config :rule_of_three, RuleOfThree.Repo,
-  username: "postgres",
-  password: "letmein!",
-  hostname: "localhost",
-  database: "rule_of_three_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
